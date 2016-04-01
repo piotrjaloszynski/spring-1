@@ -7,6 +7,8 @@ import java.util.List;
 /**
  * Created by jalos on 01.04.2016.
  */
+
+
 public interface UserService{
 
     List<User> findAll();
