@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- jak kulki w bean zrobic , pierwszym beanem bedzie database bo nie zalezy od zadnej klasy-->
+    <bean id="database" class="com.piotr.dao.Database"/>
+    <bean id="userDao" class="com.piotr.dao.UserDaoImpl">
+        <constructor-arg ref="database"/>
+    </bean>
+<bean id="userService" class="com.piotr.service.UserServiceImpl">
+    <constructor-arg ref="userDao"/>
+    <!-- jedna kulka database , jedna kulka userdao , i userService-->
+</bean>
+
+</beans>

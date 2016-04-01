@@ -9,7 +9,16 @@ import java.util.List;
  * Created by jalos on 01.04.2016.
  */
 public class UserDaoImpl implements UserDao {
- private Database database= new Database();
+    // tworzenie obiektu ktory tworxy inny obiekt w srodku
+ private Database database;
+    //tworz konstruktor dao impl
+
+
+    public UserDaoImpl(Database database) { //UserDao Impl nie tworzy samodzielnie , kolko wstrzykiwanie przez konstruktor
+        this.database = database;
+    }
+
+    //new Database();
 // metoda mogla pobrac  polaczenie i cos zrobic
     // zrob zeby cos zrobila , potrzeba implementacja  database nowa baza danych i metoda find all tez ma
     // odpytywac,
