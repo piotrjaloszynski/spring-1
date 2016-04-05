@@ -15,10 +15,18 @@ import java.util.List;
  * Created by jalos on 01.04.2016.
  */
 
-@Repository
+
 public class UserDaoImpl implements UserDao {
-    @Autowired // spring worzac  user DDao znadzie beana i go wstrzyknie
+
     private Database database;
+
+    public UserDaoImpl(Database database) {
+        this.database = database;
+    }
+
+    public UserDaoImpl() {
+    }
+
 
     // private Database database = new Database(); Z WOJTKIEM  czy tu moge umieszczac, tego
     // nie dajemy poniewaz  spring to zamienia , to jest zysk , on bedzie za pomoca dnotocacji i plikow
