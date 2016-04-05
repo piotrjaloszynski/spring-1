@@ -1,9 +1,11 @@
 package com.piotr.main;
 
+import com.piotr.config.AppConfig;
 import com.piotr.model.User;
 import com.piotr.service.UserService;
 import com.piotr.service.UserServiceImpl;
 
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.List;
@@ -15,8 +17,8 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        ClassPathXmlApplicationContext context= new ClassPathXmlApplicationContext("beans.xml");
-
+       AnnotationConfigApplicationContext context= new AnnotationConfigApplicationContext(AppConfig.class);
+// przkeazuje klase ktora jest klasa configuracyjna
         //UserService us= new UserServiceImpl();
        UserService us=context.getBean("userServiceImpl",UserService.class);
         //1. userService - id beana ,
