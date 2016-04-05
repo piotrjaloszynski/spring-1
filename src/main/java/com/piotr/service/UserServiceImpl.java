@@ -6,6 +6,7 @@ import com.piotr.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -23,7 +24,13 @@ public class UserServiceImpl implements UserService{
             //= new UserDaoImpl();
 //UserDao po private to typ
     public List<User> findAll() {
-        return userDao.findAll(); // findAll wyciagniecie wszystkich uczesntikow , w zmiennej userDao
+        try {
+            return userDao.findAll(); // findAll wyciagniecie wszystkich uczesntikow , w zmiennej userDao
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         // wyciagnij uzytkownkiow to w dao piszesz
-    }
+    return null; // jesli sie wywali to zwroci nulla
+}
+
 }

@@ -22,7 +22,7 @@ public class Main {
         //1. userService - id beana ,
         // 2.pobranie  nazwy klasuy dla bina ktorego chcemy zaladaowac
         List<User> users=us.findAll(); // lista musi byc , bo to cala lista
-     for (User u : users){
+     for (User u : users){ // tymczasowa zmiena ktora uzywamy po iteracji po tablicy
          System.out.println(u);
      }
 
