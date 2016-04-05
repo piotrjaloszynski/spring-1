@@ -4,6 +4,7 @@ import com.piotr.dao.UserDao;
 import com.piotr.dao.UserDaoImpl;
 import com.piotr.model.User;
 
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -19,7 +20,13 @@ private UserDao userDao;
     //new UserDaoImpl();
 //UserDao po private to typ
     public List<User> findAll() {
-        return userDao.findAll(); // findAll wyciagniecie wszystkich uczesntikow , w zmiennej userDao
+        try {
+            return userDao.findAll(); // findAll wyciagniecie wszystkich uczesntikow , w zmiennej userDao
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         // wyciagnij uzytkownkiow to w dao piszesz
-    }
+    return null; // jesli sie wywali to zwroci nulla
+}
+
 }
